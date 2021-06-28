@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Shoppee</title>
+</head>
+<body>
+    {% include '../base.html' %}
+    <br><br>
+    <br><br>
+    <br><br>
+    <div style= "text-align: center;" >
+        <form>
+           <label> <b> Username </b> </label>
+           <input type= "text" required = "true" minlength = 5  maxlength = 10 ></input>
+           <br>
+           <label> <b> Password </b> </label>
+           <input type = "password" required = "true" min=5 max=10></input>
+           <br>
+           <br>
+          <button> LOGIN </button>
+          <br>
+          <br>
+          <a href="{% url 'forgot' %}"> Forgot Password ? </a>
+          <br>
+          <br>
+          <a href="{% url 'register' %}"> New User - Register Here </a>
+           </div>
+        </form>
+        <footer style="font-family: cursive;">
+          <br><br>
+          <br><br>
+          <br><br>
+          <br>
+          <br>
+          <a href="{% url 'contact' %}"> Contact Us </a>
+        </footer>
+</body>
+</html>

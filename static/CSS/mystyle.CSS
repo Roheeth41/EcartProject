@@ -1,0 +1,83 @@
+.topnav {
+    float: left;
+    text-align: center;
+    font-size:xx-large; 
+    font-family: cursive; 
+  }
+  
+  h1 {
+    color:orange;
+    font-size:xx-large; 
+    font-family: cursive; 
+  }
+  
+  h2 {
+    color:orange;
+    text-align:right;
+    font-family: cursive; 
+  }
+  
+  h3{
+    color : orange;
+  }
+  input:invalid {
+    border: blue solid 1px;
+  }
+  
+  .bg{
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+  }
+  
+  table, th, td {
+    border: 2px solid black;
+  
+    color: black;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  img {
+    vertical-align:left;
+  }
+  span {
+    vertical-align:left;
+  }
+  
+  h4 {
+    display: inline-block
+  }
+  
+  label {
+    font-size:x-large; 
+    font-family: cursive; 
+    color:rgb(238, 109, 24);
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+  }
+  
+  input {
+    size:"10";
+    font-size:large;
+    font-family: cursive;
+  }
+  
+   button {
+    font-size:x-large; 
+    font-family: cursive; 
+    background-color:teal;
+    color:rgb(238, 109, 24);
+    border-color:chocolate;
+  }
+  
+  a {
+    text-align: center;
+    font-family: cursive;
+    font-size: large;
+    color:rgb(238, 109, 24);
+  }
