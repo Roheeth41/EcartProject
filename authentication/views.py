@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -12,3 +13,12 @@ def register(request):
 
 def contact(request):
     return render(request,'authentication/contact.html')
+
+def home(request):
+    #Authentication
+    username=request.POST['uname']
+    password=request.POST['passwd']
+    if username == 'Roheeth' and password == 'RK123':
+        return render(request,'authentication/home.html')
+    else:
+        return HttpResponse('Invalid Credentials')

@@ -13,12 +13,13 @@
     <br><br>
     <br><br>
     <div style= "text-align: center;" >
-        <form>
+        <form action='home' method="POST">
+          {% csrf_token %}
            <label> <b> Username </b> </label>
-           <input type= "text" required = "true" minlength = 5  maxlength = 10 ></input>
+           <input type= "text" required = "true" minlength = 5  maxlength = 10 name='uname'></input>
            <br>
            <label> <b> Password </b> </label>
-           <input type = "password" required = "true" min=5 max=10></input>
+           <input type = "password" required = "true" min=5 max=10 name = 'passwd'></input>
            <br>
            <br>
           <button> LOGIN </button>
