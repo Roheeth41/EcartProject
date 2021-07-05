@@ -13,13 +13,19 @@
     <br><br>
     <br><br>
     <div style= "text-align: center;" >
-        <form action='home' method="POST">
+      {% if user.is_authenticated %}
+      <meta http-equiv="refresh" content="0; URL=home" />
+      {% else %}
+        <form action='home' method="POST" >
           {% csrf_token %}
+          {% for message in messages %}
+          <h2 style="text-align: center;color:blue">{{ message }}</h2>
+          {% endfor %}
            <label> <b> Username </b> </label>
            <input type= "text" required = "true" minlength = 5  maxlength = 10 name='uname'></input>
            <br>
            <label> <b> Password </b> </label>
-           <input type = "password" required = "true" min=5 max=10 name = 'passwd'></input>
+           <input type = "password" required = "true" min=5 max=10 name = 'pass'></input>
            <br>
            <br>
           <button> LOGIN </button>
@@ -39,5 +45,6 @@
           <br>
           <a href="{% url 'contact' %}"> Contact Us </a>
         </footer>
+        {% endif %}
 </body>
 </html>

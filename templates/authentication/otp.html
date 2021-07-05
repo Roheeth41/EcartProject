@@ -16,13 +16,16 @@
             {% for message in messages %}
             <h2 style="text-align: center;">{{ message }}</h2>
             {% endfor %}
-           <label> <b> Username </b> </label>
-           <input type= "text" required = "true" minlength = 5  maxlength = 10 name='username'></input>
+           <label> <b> OTP </b> </label>
+           <input type= "password" required = "true" minlength = 5  maxlength = 10 name='otp'></input>
            <br>
-           <label> <b> Email </b> </label>
-           <input type= "email" required = "true" minlength = 5  maxlength = 30 name='email'></input>
+           <label> <b> Password </b> </label>
+           <input type= "password" required = "true" minlength = 5  maxlength = 30 name='password1'></input>
+           <br>
+           <label> <b> Confirm Password </b> </label>
+           <input type= "password" required = "true" minlength = 5  maxlength = 30 name='password2'></input>
            <br><br>
-          <button> GENERATE OTP </button>
+          <button> CHANGE PASSWORD </button>
         </form>
 </body>
 </html>

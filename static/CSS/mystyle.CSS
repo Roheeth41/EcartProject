@@ -25,10 +25,10 @@
   }
   
   .bg{
-    background-size: 1000px 500px;
+    background-size: 1400px 700px;
     background-repeat: no-repeat;
-    background-position: top;
-    background-attachment: fixed;
+    background-position:center;
+    background-attachment:fixed;
   }
   
   table, th, td {
@@ -56,19 +56,18 @@
     font-size:x-large; 
     font-family: cursive; 
     color:rgb(238, 109, 24);
+    width:240px;
     display: inline-block;
-    width: 150px;
     text-align: right;
   }
   
   input {
-    size:"10";
     font-size:large;
     font-family: cursive;
   }
   
    button {
-    font-size:x-large; 
+    font-size:large; 
     font-family: cursive; 
     background-color:teal;
     color:rgb(238, 109, 24);
@@ -76,8 +75,11 @@
   }
   
   a {
-    text-align: center;
     font-family: cursive;
-    font-size: large;
+    font-size:medium;
     color:rgb(238, 109, 24);
+  }
+
+  ul li{
+    display: inline;
   }
