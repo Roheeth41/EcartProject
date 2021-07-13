@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+{% url 'product' as prod %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{% static "CSS/myStyle.css" %}" />
+</head>
+
+<body>
+    {% include '../base.html' %}
+    {% if user.is_authenticated %}
+    <div style="background-color:teal; border-radius: 20px;" >
+        <div class="container">
+            <div class="row">
+                <br>
+                <div class="column_search">
+                    <input id="search" name="search" type="text" class="query-search" placeholder="Search...">
+                    <button id="search">Search</button>
+                </div>
+                <div class="column_logout">
+                    <form action="logout" method="POST" style="float: right;">
+                        {% csrf_token %}
+                            <a>
+                                <button class="search_button" type="submit" class="logout">LOG OUT</button>
+                            </a>
+                    </form>
+                </div>
+                <div class="column_logout" style="text-align:left ;">
+                    <form action="cart">
+                        <button type="submit">Cart:<span>{{ user_data.count }}</span></button>
+                    </form>                       
+                </div>
+                <div class="column_logout" style="text-align:left ;">
+                    <form action="order">
+                        <button type="submit">Orders</button>
+                    </form>                       
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class='column_product_1'>
+                    <img width=500 height=500 src="{{ product.image.url }}" alt="Product">
+                    <h1>{{ product.name }}</h1>
+                </div>
+                <br><br><br><br><br>
+                <br><br><br><br><br>
+                <div class='column_product_2' style="vertical-align: middle;">
+                    <p style="text-align: center;"> <b>{{ product.long_description }}</b> </p>
+                    <p style="text-align: center;"> <b>Rs.{{ product.price }} </b> </p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <a href='cart/{{ product.id }}'>
+                            <input type="hidden" value="{{ user.id }}" name="user">
+                            <button>Add to Cart</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h2 style="text-align: center; color:blue">Redirecting to Login...</h2>
+    <meta http-equiv="refresh" content="1; URL=/" />
+    {% endif %}
+</body>
+
+</html>

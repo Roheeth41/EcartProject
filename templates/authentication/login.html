@@ -14,7 +14,7 @@
     <br><br>
     <div style= "text-align: center;" >
       {% if user.is_authenticated %}
-      <meta http-equiv="refresh" content="0; URL=home" />
+      <meta http-equiv="refresh" content="0; URL=app" />
       {% else %}
         <form action='home' method="POST" >
           {% csrf_token %}

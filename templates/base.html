@@ -7,15 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "CSS/myStyle.css" %}" />
 </head>
-<body class="bg" style="background-image: url('{% static "/Images/BG.jpg" %}' )" >
+<body style="background-color: #EDF5E1;">
     {% block content %}
     <div class='topnav'>
+        {% if user.is_authenticated %}
+        <a href="{% url 'app' %}">
+        {% else %}
         <a href="{% url 'login' %}">
-        <img src="{% static "Images/cart_icon.png" %}" alt="Cart Image"; width="50" height="50">
+        {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="column_header_1">
+                    <img src="{% static "Images/cart_icon.png" %}" alt="Cart Image"; width="50" height="50">
+                </div>
+                <div class="column_header_2">
+                    <h1>Ecart Shoppee</h1>
+                </div>
+            </div>
+        </div>
         </a>
-    </div>
-    <div>
-        <h1>Ecart Shoppee</h1>
     </div>
     {% endblock %}
 </body>
