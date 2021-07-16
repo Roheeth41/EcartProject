@@ -83,7 +83,6 @@ def otp(request):
         otp_2=request.POST['otp']
         pass1=request.POST['password1']
         pass2=request.POST['password2']
-        print(otp_1,otp_2,type(otp_1),type(otp_2),uname,pass1)
         if otp_1 == int(otp_2):
             if pass1 == pass2:
                 user=User.objects.get(username=uname)
