@@ -18,10 +18,12 @@
         <div class="container">
             <div class="row">
                 <br>
-                <div class="column_search">
-                    <input id="search" name="search" type="text" class="query-search" placeholder="Search...">
-                    <button id="search">Search</button>
-                </div>
+                <form action="search">
+                    <div class="column_search">
+                        <input id="search" name="search" type="text" class="query-search" placeholder="Search...">
+                        <button type="submit">Search</button>
+                    </div>
+                </form>
                 <div class="column_logout">
                     <form action="logout" method="POST" style="float: right;">
                         {% csrf_token %}

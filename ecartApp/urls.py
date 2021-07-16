@@ -12,4 +12,8 @@ urlpatterns = [
     path('remove/', include('ecartApp.remove_urls')),
     path('buy/', include('ecartApp.buy_urls')),
     path('order/', views.buy,name='order'),
+    path('search', views.search,name='search'),
+    path('order/logout', authentication.views.logout,name='logout'),
+    path('order/search',views.search,name='search'),
+    path('search', views.search,name='search'),
 ]

@@ -23,10 +23,12 @@
             <div class="container">
                 <div class="row">
                     <br>
-                    <div class="column_search">
-                        <input id="search" name="search" type="text" class="query-search" placeholder="Search...">
-                        <button id="search">Search</button>
-                    </div>
+                    <form action="search">
+                        <div class="column_search">
+                            <input id="search" name="search" type="text" class="query-search" placeholder="Search...">
+                            <button type="submit">Search</button>
+                        </div>
+                    </form>
                     <div class="column_logout">
                         <form action="logout" method="POST" style="float: right;">
                             {% csrf_token %}
@@ -36,14 +38,13 @@
                         </form>
                     </div>
                     <div class="column_logout" style="text-align:left ;">
-                        <form action="cart">
-                            <button type="submit">Cart:<span>{{ product.count }}</span></button>
-                        </form>                       
+                        <a href="{% url 'cart' %}"></a>
+                            <button type="submit">Cart:<span>{{ product.count }}</span></button>                  
                     </div>
                     <div class="column_logout" style="text-align:left ;">
-                        <form action="order">
-                            <button type="submit">Orders</button>
-                        </form>                       
+                            <a href="{% url 'order' %}">
+                                <button type="submit">Orders</button>
+                            </a>                      
                     </div>
                 </div>
             </div>
@@ -64,7 +65,7 @@
                     <br>
                     <form action="{{ buy }}{{ item.id }}" method="POST">
                         {% csrf_token %}
-                        <input id="qauntity" type="number" style="text-align:center" max="99" min="1" name="quantity" value="1">
+                        <input id="quantity" type="number" style="text-align:center" max="99" min="1" name="quantity" value="1">
                         <button type="submit">Buy Now</button>
                     </form>
                     <br>

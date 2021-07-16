@@ -15,7 +15,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return render(request,'authentication/login.html')
+    return render(request,'authentication/logout.html')
 
 def forgot(request):
     if request.method=="POST":

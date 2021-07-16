@@ -19,27 +19,29 @@
             <div class="container">
                 <div class="row">
                     <br>
-                    <div class="column_search">
-                        <input id="search" name="search" type="text" class="query-search" placeholder="Search...">
-                        <button id="search">Search</button>
-                    </div>
+                    <form action="search">
+                        <div class="column_search">
+                            <input id="search" name="search" type="text" class="query-search" placeholder="Search...">
+                            <button type="submit">Search</button>
+                        </div>
+                    </form>
                     <div class="column_logout">
                         <form action="logout" method="POST" style="float: right;">
                             {% csrf_token %}
-                                <a>
+                                <a href="{% url 'login' %}">
                                     <button class="search_button" type="submit" class="logout">LOG OUT</button>
                                 </a>
                         </form>
                     </div>
                     <div class="column_logout" style="text-align:left ;">
-                        <form action="cart">
+                        <a href="{% url 'cart' %}">
                             <button type="submit">Cart:<span>{{ user_data.count }}</span></button>
-                        </form>                       
+                        </a>                      
                     </div>
                     <div class="column_logout" style="text-align:left ;">
-                        <form action="order">
-                            <button type="submit">Orders</button>
-                        </form>                       
+                            <a href="{% url 'order' %}">
+                                <button type="submit">Orders</button>
+                            </a>                      
                     </div>
                 </div>
             </div>

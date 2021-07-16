@@ -5,5 +5,6 @@ import authentication
 
 urlpatterns = [
     path('', views.buy,name='buy'),
-    path('<int:id>', views.buy,name='buy_dynamic')
+    path('<int:id>', views.buy,name='buy_dynamic'),
+    path('logout', authentication.views.logout,name='logout'),
 ]

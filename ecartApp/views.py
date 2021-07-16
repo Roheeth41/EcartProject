@@ -35,7 +35,6 @@ def remove(request,id):
     if request.method=='POST':
         user_id=request.user.id
         product_to_be_deleted=carts.objects.filter(id=id)
-        print(product_to_be_deleted)
         product_to_be_deleted.delete()
         product_data=products.objects.filter(carts__user=User.objects.get(id=user_id),carts__status=0)
         return render(request,'ecartApp/cart.html',{'product':product_data})
@@ -82,7 +81,13 @@ def buy(request,id=None):
                     final_dict['image']=product.image
                     final_dict['price']=product.price
                     final_dict['quantity']=item.quantity
-                    final_list.append(final_dict.copy()) 
-        print(final_list)       
+                    final_list.append(final_dict.copy())      
         return render(request,'ecartApp/order.html',{'product':final_list,'user_data':user_data})
+
+def search(request):
+    search_word=request.GET['search']
+    user_id=request.user.id
+    user_data=products.objects.filter(carts__user=User.objects.get(id=user_id),carts__status=0)
+    result=products.objects.filter(name__contains=search_word)
+    return render(request,'ecartApp/home.html',{'products':result,'user_data':user_data})
     

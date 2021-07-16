@@ -8,5 +8,6 @@ urlpatterns = [
     path('home', authentication.views.home,name='home'),
     path('logout', authentication.views.logout,name='logout'),
     path('cart/', include('ecartApp.cart_urls')),
+    path('order', views.buy,name='order'),
     path('<int:id>', views.product,name='product_dynamic'),
 ]
