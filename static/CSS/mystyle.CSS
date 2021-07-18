@@ -16,6 +16,10 @@
     font-family: cursive; 
   }
 
+  h5 {
+    color:black
+  }
+
   p {
     color : orange;
     font-size: medium;
