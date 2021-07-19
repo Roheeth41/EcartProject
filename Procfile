@@ -1,1 +1,1 @@
-web:gunicron EcartProject.wsgi --log-file -
+web: gunicron EcartProject.wsgi
