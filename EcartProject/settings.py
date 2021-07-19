@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'EcartProject.wsgi.application'
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'python_course',
-        'USER': 'PythonCourse',
-        'PASSWORD': 'Python@1234',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'NAME': 'heroku_2336ddfc927ad5e',
+        'USER': 'bd425ca6fe6672',
+        'PASSWORD': '6729d56d',
+        'HOST': 'eu-cdbr-west-01.cleardb.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
