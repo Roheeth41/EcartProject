@@ -19,6 +19,8 @@ from django.urls import path,include
 from authentication import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import re_path
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,12 +32,7 @@ urlpatterns = [
     path('home', views.home,name='home'),
     path('logout', views.logout,name='logout'),
     path('app/',include('ecartApp.urls')),
-]
-
-if settings.DEBUG is True:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-else:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + [ re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT,}),]
 
 if settings.DEBUG is True:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
