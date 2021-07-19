@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-rq#l%_#ai6x$5n_6=tvx7_dv1sha13y*zc3zfaht5py*vbg=qh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['127.0.0.1','https://ecartapp-atoz.herokuapp.com/']
 
 # Application definition
 
