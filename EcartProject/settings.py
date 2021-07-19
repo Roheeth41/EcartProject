@@ -144,4 +144,6 @@ STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-mimetypes.add_type("text/css", ".css", True)
+WHITENOISE_MIMETYPES = {
+    ".css": "text/css",
+}
