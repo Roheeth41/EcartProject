@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     {% include '../base.html' %}
     <br><br>
-   <div style= "text-align: center;" >
-    <form style="align-items: center;" method="POST">
-        {% csrf_token %}
-        {% for message in messages %}
-        <h2 style="text-align: center;">{{ message }}</h2>
-        {% endfor %}
-       <label> <b> First Name </b> </label>
-       <input type= "text" required = "true" minlength = 5  maxlength = 10 name='first_name'></input>
-       <br>
-       <label> <b> Last Name </b> </label>
-       <input type= "text" required = "true" minlength = 5  maxlength = 10 name='last_name' ></input>
-       <br>
-       <label> <b> Username </b> </label>
-       <input type= "text" required = "true" minlength = 5  maxlength = 10 name='username'></input>
-       <br>
-       <label> <b> Password </b> </label>
-       <input type="password" required = "true" minlength = 5  maxlength = 10 name='password1'></input>
-       <br>
-       <label style="white-space:nowrap;"> <b> Confirm Password </b> </label>
-       <input type="password" required = "true" minlength = 5  maxlength = 10 name='password2'></input>
-       <br>
-       <label> <b> Email </b> </label>
-       <input type= "email" required = "true" minlength = 5  maxlength = 10 name='email'></input>
-       <br><br>
-      <button> REGISTER </button>
-    </form>
+    <div style="text-align: center;">
+        <form style="align-items: center;" method="POST">
+            {% csrf_token %}
+            {% for message in messages %}
+            <h2 style="text-align: center;">{{ message }}</h2>
+            {% endfor %}
+            <div>
+                <label> <b> First Name </b> </label>
+                <input type="text" required="true" minlength=5 maxlength=10 name='first_name'></input>
+                <br>
+                <label> <b> Last Name </b> </label>
+                <input type="text" required="true" minlength=5 maxlength=10 name='last_name'></input>
+                <br>
+                <label> <b> Username </b> </label>
+                <input type="text" required="true" minlength=5 maxlength=10 name='username'></input>
+                <br>
+                <label> <b> Password </b> </label>
+                <input type="password" required="true" minlength=5 maxlength=10 name='password1'></input>
+                <br>
+                <label style="white-space:nowrap;"> <b> Confirm Password </b> </label>
+                <input type="password" required="true" minlength=5 maxlength=10 name='password2'></input>
+                <br>
+                <label> <b> Email </b> </label>
+                <input type="email" required="true" minlength=5 maxlength=20 name='email'></input>
+                <br><br>
+                <button> REGISTER </button>
+            </div>
+        </form>
 </body>
+
 </html>
