@@ -135,6 +135,9 @@ STATICFILES_DIRS = [
     STATIC_DIR,
     ]
 
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+
+
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 EMAIL_HOST_USER = ''
