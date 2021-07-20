@@ -33,8 +33,3 @@ urlpatterns = [
     path('logout', views.logout,name='logout'),
     path('app/',include('ecartApp.urls')),
 ] + [ re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT,}),]
-
-if settings.DEBUG is True:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-else:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
