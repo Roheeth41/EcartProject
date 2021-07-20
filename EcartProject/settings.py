@@ -19,9 +19,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 TEMPLATES_DIR =os.path.join(BASE_DIR,'templates')
 
-STATIC_DIR =os.path.join(BASE_DIR,'static')
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -31,8 +28,7 @@ SECRET_KEY = 'django-insecure-rq#l%_#ai6x$5n_6=tvx7_dv1sha13y*zc3zfaht5py*vbg=qh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1',".herokuapp.com",]
 
 # Application definition
 
@@ -43,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'authentication',
+    'ecartApp',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,9 +79,13 @@ WSGI_APPLICATION = 'EcartProject.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'heroku_2336ddfc927ad5e',
+        'USER': 'bd425ca6fe6672',
+        'PASSWORD': '6729d56d',
+        'HOST': 'eu-cdbr-west-01.cleardb.com',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
@@ -125,11 +128,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_DIR =os.path.join(BASE_DIR,'static')
+
 STATICFILES_DIRS = [
     STATIC_DIR,
     ]
+
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+WHITENOISE_MIMETYPES = {
+    ".css": "text/css",
+}

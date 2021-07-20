@@ -5,25 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Forgot</title>
 </head>
 <body>
     {% include '../base.html' %}
     <br><br>
     <br><br>
     <br><br>
-    <div style= "text-align:center;" >
-     <form>
-        <label> <b> Username </b> </label>
-        <input type= "text" required = "true" minlength = 5  maxlength = 10 ></input>
-        <br>
-        <br>
-        <label> <b> Aadhar No. </b> </label>
-        <input size="4" required = "true" pattern= [0-9]{1,4} maxlength="4"  ></input>
-        <input size="4" required = "true" pattern= [0-9]{1,4} maxlength="4" ></input>
-        <input size="4" required = "true" pattern= [0-9]{1,4} maxlength="4" ></input>
-   <br><br><br>
-       <button> GET PASSWORD </button>
-     </form>
+    <div style= "text-align: center;" >
+        <form style="align-items: center;" method="POST">
+            {% csrf_token %}
+            {% for message in messages %}
+            <h2 style="text-align: center;">{{ message }}</h2>
+            {% endfor %}
+           <label> <b> Username </b> </label>
+           <input type= "text" required = "true" minlength = 5  maxlength = 10 name='username'></input>
+           <br>
+           <label> <b> Email </b> </label>
+           <input type= "email" required = "true" minlength = 5  maxlength = 30 name='email'></input>
+           <br><br>
+          <button> GENERATE OTP </button>
+        </form>
 </body>
 </html>

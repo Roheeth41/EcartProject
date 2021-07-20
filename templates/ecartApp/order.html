@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Shoppee</title>
+    <link rel="stylesheet" type="text/css" href="{% static "CSS/myStyle.css" %}" />
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <div style="background-color:teal; border-radius: 20px;">
+        {% include '../base.html' %}
+        <div>
+            <div class="container">
+                <div class="row">
+                    <br>
+                    <form action="search">
+                        <div class="column_search">
+                            <input id="search" name="search" type="text" class="query-search" placeholder="Search...">
+                            <button type="submit">Search</button>
+                        </div>
+                    </form>
+                    <div class="column_logout">
+                        <form action="logout" method="POST" style="float: right;">
+                            {% csrf_token %}
+                                <a href="{% url 'login' %}">
+                                    <button class="search_button" type="submit" class="logout">LOG OUT</button>
+                                </a>
+                        </form>
+                    </div>
+                    <div class="column_logout" style="text-align:left ;">
+                        <a href="{% url 'cart' %}">
+                            <button type="submit">Cart:<span>{{ user_data.count }}</span></button>
+                        </a>                      
+                    </div>
+                    <div class="column_logout" style="text-align:left ;">
+                            <a href="{% url 'order' %}">
+                                <button type="submit">Orders</button>
+                            </a>                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            {% for item in product %}
+            <div class="row">
+                <div class='column_cart_1'>
+                    <img width=120 height=120 src="{{ item.image.url }}" alt="Product" style="float: left;">
+                    <h1 style="vertical-align: top;">{{ item.name }}</h1>
+                    <h2 style="text-align: center;">Rs.{{ item.price }}</h2>
+                    <h3 style="text-align: center; color:black">Quantity:{{ item.quantity }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <h2 style="text-align: center; color:blue">Redirecting to Login...</h2>
+    <meta http-equiv="refresh" content="1; URL=/" />
+    {% endif %}
+</body>
+</html>
